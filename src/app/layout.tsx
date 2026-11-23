@@ -89,10 +89,20 @@ export default function RootLayout({
     sameAs: [siteConfig.social.instagramUrl],
     address: {
       "@type": "PostalAddress",
+      streetAddress: "R. Padre Celestino André Trevisan, 325 - Barreiro",
       addressLocality: "Mairiporã",
       addressRegion: "SP",
+      postalCode: "07611-425",
       addressCountry: "BR",
     },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Saturday", "Sunday"],
+        opens: "10:00",
+        closes: "16:00",
+      },
+    ],
     touristType: [
       "Famílias com crianças",
       "Escolas de Educação Infantil e Ensino Fundamental",

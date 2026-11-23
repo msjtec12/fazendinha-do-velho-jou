@@ -13,20 +13,21 @@ import {
   CheckCircle2,
   ShieldAlert,
   Backpack,
+  Utensils,
   ArrowRight,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ingressos, Funcionamento e Como Planejar sua Visita",
+  title: "Ingressos e Valores — Mini Fazendinha Velho Jou (Mairiporã - SP)",
   description:
-    "Saiba como funcionam os ingressos para a fazendinha, categorias por faixa etária, o que está incluso no passeio e como consultar valores vigentes pelo WhatsApp oficial.",
+    "Confira os valores de ingressos da Mini Fazendinha Velho Jou: R$ 30,00 por pessoa (de 3 a 59 anos), meia-entrada R$ 15,00 (60+) e grátis de 0 a 2 anos. Agende pelo WhatsApp (11) 94280-7987.",
   alternates: {
     canonical: "/ingressos",
   },
   openGraph: {
-    title: "Ingressos, Funcionamento e Como Planejar sua Visita",
+    title: "Ingressos e Valores — Mini Fazendinha Velho Jou",
     description:
-      "Informações transparentes sobre categorias de ingresso, regras de visitação, o que levar na mochila das crianças e pré-reserva via WhatsApp.",
+      "Ingresso R$ 30,00 (3 a 59 anos) | Meia 60+ R$ 15,00 | 0 a 2 anos Grátis. Inclui atividades de fazendeiro, pônei, trenzinho e recreação.",
     url: "/ingressos",
     images: ["/images/outdoor-play-meadow.jpg"],
   },
@@ -35,84 +36,88 @@ export const metadata: Metadata = {
 const ticketCategories = [
   {
     id: "adultos-e-juvenil",
-    title: "Adultos & Crianças",
-    badge: "Acesso às vivências",
+    title: "De 3 a 59 anos",
+    price: "R$ 30,00 por pessoa",
+    badge: "Ingresso Individual",
     icon: Users,
     description:
-      "Inclui permanência durante o horário de funcionamento do dia, acesso aos espaços dos animais, horta educativa, trilhas leves e áreas de recreação ao ar livre.",
+      "Inclui todas as Atividades de Fazendeiro (alimentar coelhos, aves, bovinos e miniporcos, mamadeira aos cabritos, escovar pônei e ordenha) e Atrações Recreativas (passeio de pônei, trenzinho, motocas, tobogã, cama elástica, piscina e mais).",
     notes: [
-      "Valores atualizados informados no pré-atendimento conforme temporada",
-      "Almoço no restaurante rural pode ser consultado junto ao ingresso",
+      "Ingressos limitados — compra antecipada obrigatória pelo WhatsApp",
+      "Almoço no fogão a lenha cobrado à parte no Restaurante Caipira",
     ],
   },
   {
     id: "primeira-infancia",
-    title: "Bebês & Primeira Infância",
-    badge: "Condição especial",
+    title: "Crianças de 0 a 2 anos",
+    price: "Grátis (Isento)",
+    badge: "Gratuidade",
     icon: Baby,
     description:
-      "Política acolhedora para famílias com bebês de colo. Consulte a faixa etária exata de isenção vigente no momento do seu agendamento.",
+      "Bebês e crianças até 2 anos completos têm entrada gratuita acompanhados dos responsáveis, com fraldário completo e estrutura acolhedora.",
     notes: [
-      "Apresentação de documento da criança na recepção",
-      "Acesso às estruturas de apoio familiar e áreas sombreadas",
+      "Mediante apresentação de documento da criança na recepção",
+      "Acesso livre com a família a todos os espaços e áreas sombreadas",
     ],
   },
   {
     id: "melhor-idade",
-    title: "Melhor Idade (60+) & Meia-Entrada",
-    badge: "Benefício garantido",
+    title: "Melhor Idade (60+ anos)",
+    price: "R$ 15,00 (Meia-entrada)",
+    badge: "Benefício 60+",
     icon: HeartHandshake,
     description:
-      "Avós são muito bem-vindos na fazendinha! Contamos com caminhos planos, bancos à sombra e condições de meia-entrada conforme legislação e política local.",
+      "A partir de 60 anos paga meia-entrada! Os avós aproveitam o ar puro de Mairiporã, o contato com os animais junto aos netos e a comida caipira no fogão a lenha.",
     notes: [
       "Mediante apresentação de documento oficial com foto na portaria",
-      "Consulte condições para PCD e acompanhantes no canal oficial",
+      "Acessibilidade nas áreas principais e restaurante coberto",
     ],
   },
 ];
 
 const backpackChecklist = [
-  "Roupas leves e confortáveis que possam sujar de terra ou grama sem preocupação",
-  "Calçados fechados ou tênis antiderrapantes (ideais para caminhar nos cercados e trilhas)",
+  "Roupas leves e confortáveis para as crianças brincarem à vontade",
+  "Calçados fechados ou tênis antiderrapantes para os cercados e passeios",
   "Chapéu ou boné, protetor solar e repelente infantil",
-  "Uma muda extra de roupa para as crianças aproveitarem todas as brincadeiras",
-  "Garrafinha de água reutilizável para hidratação ao longo do passeio",
+  "Roupa de banho, toalha e troca extra para aproveitar o chafariz, a piscina infantil e a caixa de areia",
 ];
 
 export default function IngressosPage() {
+  const { pricing } = siteConfig;
+
   return (
     <>
       <PageHero
         breadcrumbs={[{ label: "Ingressos", href: "/ingressos" }]}
-        eyebrow="Planejamento & Acesso"
-        title="Ingressos, funcionamento e como planejar sua visita"
-        description="Prezamos pela transparência total: veja o que está incluído na experiência da fazendinha, conheça as categorias de visitantes e consulte a tabela vigente diretamente no nosso WhatsApp oficial."
-        ctaLabel="Consultar valores no WhatsApp"
+        eyebrow="Valores Oficiais • Sábados, Domingos e Feriados (10h às 16h)"
+        title="Ingressos, valores e como agendar sua visita"
+        description="Na Mini Fazendinha Velho Jou você paga um valor justo e acessível com todas as atividades de fazendeiro, passeio de pônei, trenzinho e brinquedos recreativos inclusos no ingresso."
+        ctaLabel="Reservar ingressos pelo WhatsApp"
         defaultExperience="Visita em família (Day Use)"
         image={siteConfig.gallery[6]}
       />
 
-      {/* Categorias de Ingresso e Transparência de Valores */}
+      {/* Categorias de Ingresso e Valores Oficiais */}
       <section
         aria-labelledby="ticket-categories-heading"
         className="py-16 sm:py-24 border-b border-[#303A2C]/10"
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-3 mb-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="max-w-3xl space-y-3">
             <span className="inline-flex items-center gap-2 rounded-full bg-[#315B3D]/12 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#315B3D]">
               <Ticket className="w-3.5 h-3.5" aria-hidden="true" />
-              <span>Modalidades de Visitação</span>
+              <span>Tabela Oficial de Ingressos</span>
             </span>
             <h2
               id="ticket-categories-heading"
               className="font-serif text-3xl sm:text-4xl font-semibold text-[#303A2C]"
             >
-              Categorias pensadas para todas as gerações da família
+              Valores de entrada por faixa etária
             </h2>
             <p className="text-base text-[#303A2C]/80 leading-relaxed">
-              Para evitar qualquer informação desatualizada ou cobrança automática indevida, todos os
-              valores de ingresso e almoço são enviados de forma oficial pela nossa equipe de
-              atendimento conforme a data escolhida.
+              É necessário realizar agendamento antecipado pelo WhatsApp{" "}
+              <strong className="font-semibold text-[#303A2C]">(11) 94280-7987</strong>. Os
+              ingressos são limitados por dia.
             </p>
           </div>
 
@@ -134,9 +139,14 @@ export default function IngressosPage() {
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-2xl font-semibold text-[#303A2C]">
-                      {cat.title}
-                    </h3>
+                    <div>
+                      <h3 className="font-serif text-xl font-semibold text-[#303A2C]">
+                        {cat.title}
+                      </h3>
+                      <p className="font-serif text-2xl sm:text-3xl font-bold text-[#315B3D] mt-1">
+                        {cat.price}
+                      </p>
+                    </div>
 
                     <p className="text-sm text-[#303A2C]/80 leading-relaxed">
                       {cat.description}
@@ -161,6 +171,29 @@ export default function IngressosPage() {
               );
             })}
           </div>
+
+          {/* Resumo dos valores do Almoço Self-Service no Fogão a Lenha */}
+          <div className="rounded-3xl bg-[#EFE6D5]/80 border border-[#303A2C]/15 p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#A6602E]">
+                <Utensils className="w-4 h-4" aria-hidden="true" />
+                <span>Restaurante Caipira no Fogão a Lenha (Cobrado à parte)</span>
+              </div>
+              <h3 className="font-serif text-2xl font-semibold text-[#303A2C]">
+                Menu de Almoço: Self-Service coma à vontade
+              </h3>
+              <p className="text-sm text-[#303A2C]/85">
+                {pricing.lunchSelfService.map((t) => `${t.label}: ${t.price}`).join(" • ")}
+              </p>
+            </div>
+            <Link
+              href="/restaurante"
+              className="inline-flex items-center gap-2 rounded-full bg-[#303A2C] hover:bg-[#315B3D] text-[#F7F0E3] px-6 py-3.5 text-xs sm:text-sm font-semibold transition-colors shrink-0 self-start lg:self-auto"
+            >
+              <span>Ver pratos do fogão a lenha</span>
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -173,15 +206,11 @@ export default function IngressosPage() {
               <div className="rounded-3xl bg-[#FBF8F1] border border-[#303A2C]/12 p-6 sm:p-8 space-y-4">
                 <div className="inline-flex items-center gap-2 rounded-full bg-[#C47A45]/15 px-3.5 py-1 text-xs font-semibold text-[#A6602E]">
                   <Backpack className="w-4 h-4" aria-hidden="true" />
-                  <span>Dica de Ouro para os Pais</span>
+                  <span>O que trazer para as crianças</span>
                 </div>
                 <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#303A2C]">
-                  O que colocar na mochila para um dia no campo
+                  Dicas para aproveitar todas as atrações
                 </h2>
-                <p className="text-sm sm:text-base text-[#303A2C]/80 leading-relaxed">
-                  Um passeio ao ar livre fica ainda mais gostoso quando a família vem preparada para
-                  caminhar na grama e aproveitar o sol com conforto:
-                </p>
                 <ul className="space-y-2.5 pt-1">
                   {backpackChecklist.map((item) => (
                     <li
@@ -202,41 +231,31 @@ export default function IngressosPage() {
               <div className="rounded-3xl bg-[#FBF8F1] border border-[#303A2C]/12 p-6 sm:p-8 space-y-4">
                 <div className="inline-flex items-center gap-2 rounded-full bg-[#315B3D]/12 px-3.5 py-1 text-xs font-semibold text-[#315B3D]">
                   <ShieldAlert className="w-4 h-4" aria-hidden="true" />
-                  <span>Regras de Bem-Estar & Funcionamento</span>
+                  <span>Regras Importantes</span>
                 </div>
                 <h2 className="font-serif text-2xl font-semibold text-[#303A2C]">
-                  Por que recomendamos a consulta antecipada?
+                  Agendamento obrigatório e regras de acesso
                 </h2>
                 <p className="text-sm text-[#303A2C]/80 leading-relaxed">
-                  Diferente de grandes parques comerciais, nossa fazendinha preserva o ritmo natural
-                  dos animais e o acolhimento familiar. Por isso, trabalhamos com capacidade diária
-                  planejada. Ao consultar pelo WhatsApp, você confirma se há vagas para o dia
-                  escolhido e recebe todas as orientações sobre o{" "}
+                  Não é permitida a entrada de alimentos e bebidas externos na propriedade. Mesmo
+                  quem desejar vir apenas para almoçar no{" "}
                   <Link href="/restaurante" className="font-semibold text-[#315B3D] underline">
-                    restaurante rural
+                    Restaurante Caipira
                   </Link>{" "}
-                  e{" "}
+                  precisa adquirir o ingresso da fazendinha, pois o restaurante fica dentro do
+                  espaço de visitação. Confira também o endereço completo em{" "}
                   <Link href="/como-chegar" className="font-semibold text-[#315B3D] underline">
-                    rota verificada de chegada
+                    Como Chegar
                   </Link>
                   .
                 </p>
-                <div className="pt-2 flex flex-wrap gap-3">
-                  <Link
-                    href="/perguntas-frequentes"
-                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#315B3D] hover:text-[#24452D]"
-                  >
-                    <span>Ler dúvidas frequentes sobre ingressos e pagamentos</span>
-                    <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                  </Link>
-                </div>
               </div>
             </div>
 
             <div className="lg:col-span-5">
               <WhatsAppBookingCard
-                title="Consultar ingressos e vagas"
-                subtitle="Informe a data e a quantidade de adultos e crianças para receber a tabela atualizada diretamente no WhatsApp."
+                title="Reservar ingressos no WhatsApp"
+                subtitle="Informe a data do fim de semana/feriado e a quantidade de adultos e crianças para garantir seus ingressos no (11) 94280-7987."
                 defaultExperience="Visita em família (Day Use)"
                 formIdPrefix="tickets-page-booking"
               />
@@ -247,7 +266,7 @@ export default function IngressosPage() {
 
       <FinalCTASection
         title="Vai comemorar aniversário ou trazer uma turma escolar?"
-        subtitle="Temos condições e orientações específicas para grupos. Conheça nossas páginas dedicadas ou fale direto com o atendimento."
+        subtitle="Confira como funcionam nossos espaços decorados para cantar parabéns e nossos passeios pedagógicos."
         secondaryHref="/aniversarios"
         secondaryLabel="Ver comemorações de aniversário"
       />

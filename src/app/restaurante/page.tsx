@@ -14,19 +14,20 @@ import {
   Coffee,
   Info,
   ArrowRight,
+  CheckCircle2,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Restaurante Rural — Comida Caseira de Fazenda para a Família",
+  title: "Menu de Almoço — Comida Caipira no Fogão a Lenha | Fazendinha Velho Jou",
   description:
-    "Saboreie um almoço rural autêntico na fazendinha: pratos tradicionais com tempero caseiro, ingredientes frescos da horta, opções infantis e sobremesas de fazenda.",
+    "Menu de almoço da Mini Fazendinha Velho Jou: Comida caipira no fogão a lenha, Self-Service coma à vontade por R$ 59,90 por pessoa. Crianças de 3 a 8 anos R$ 12,00 e de 9 a 11 anos R$ 25,00.",
   alternates: {
     canonical: "/restaurante",
   },
   openGraph: {
-    title: "Restaurante Rural — Comida Caseira de Fazenda para a Família",
+    title: "Menu de Almoço — Comida Caipira no Fogão a Lenha | Fazendinha Velho Jou",
     description:
-      "Almoço em família cercado por natureza: clássicos da culinária caipira, saladas frescas, opções suaves para crianças e doces caseiros.",
+      "Self-Service coma à vontade no fogão a lenha: R$ 59,90 por pessoa. Crianças de 3 a 8 anos: R$ 12,00 | De 9 a 11 anos: R$ 25,00.",
     url: "/restaurante",
     images: ["/images/rural-gastronomy-table.jpg"],
   },
@@ -35,19 +36,68 @@ export const metadata: Metadata = {
 const highlightIcons = [Flame, Salad, Baby, Coffee];
 
 export default function RestaurantePage() {
-  const { gastronomy } = siteConfig;
+  const { gastronomy, pricing } = siteConfig;
 
   return (
     <>
       <PageHero
         breadcrumbs={[{ label: "Restaurante", href: "/restaurante" }]}
-        eyebrow="Gastronomia de Fazenda"
-        title="Gastronomia rural autêntica e almoço em família"
-        description="Depois de uma manhã inteira alimentando os animais e correndo pelos gramados, nada melhor do que sentar à mesa com calma e saborear uma refeição preparada com ingredientes frescos e tempero de interior."
-        ctaLabel="Consultar cardápio e valores no WhatsApp"
+        eyebrow="Comida Caipira no Fogão a Lenha"
+        title="Menu de almoço: Self-Service coma à vontade no fogão a lenha"
+        description="Saboreie as panelas de barro fumegantes do nosso Restaurante Caipira! Grande variedade de misturas, carnes, acompanhamentos da roça e saladas frescas para toda a família."
+        ctaLabel="Agendar visita e almoço no WhatsApp"
         defaultExperience="Almoço no restaurante rural"
         image={gastronomy.imageMain}
       />
+
+      {/* Tabela Oficial de Preços do Menu de Almoço (igual ao menu oficial) */}
+      <section
+        aria-labelledby="lunch-pricing-heading"
+        className="py-12 sm:py-16 bg-[#FBF8F1] border-b border-[#303A2C]/10"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-[#EFE6D5]/80 border border-[#303A2C]/15 p-6 sm:p-10">
+            <div className="max-w-2xl space-y-2 mb-8">
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#C47A45]/15 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#A6602E]">
+                <Flame className="w-3.5 h-3.5" aria-hidden="true" />
+                <span>Self-Service Coma à Vontade</span>
+              </span>
+              <h2
+                id="lunch-pricing-heading"
+                className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#303A2C]"
+              >
+                Valores do Menu de Almoço por faixa etária
+              </h2>
+              <p className="text-sm sm:text-base text-[#303A2C]/80">
+                Almoço cobrado à parte do ingresso da fazendinha. Sirva-se à vontade nas panelas do
+                nosso fogão a lenha:
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {pricing.lunchSelfService.map((tier) => (
+                <div
+                  key={tier.label}
+                  className="rounded-2xl bg-[#FBF8F1] border border-[#303A2C]/12 p-5 flex flex-col justify-between space-y-3 shadow-2xs"
+                >
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[#315B3D]">
+                      {tier.label}
+                    </p>
+                    <p className="font-serif text-2xl sm:text-3xl font-bold text-[#303A2C] mt-1.5">
+                      {tier.price}
+                    </p>
+                  </div>
+                  <p className="text-xs text-[#303A2C]/75 flex items-center gap-1.5 pt-2 border-t border-[#303A2C]/10">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#315B3D] shrink-0" aria-hidden="true" />
+                    <span>{tier.note}</span>
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Destaques do Cardápio e Experiência à Mesa */}
       <section
@@ -58,18 +108,16 @@ export default function RestaurantePage() {
           <div className="max-w-3xl space-y-3 mb-12">
             <span className="inline-flex items-center gap-2 rounded-full bg-[#C47A45]/15 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#A6602E]">
               <Utensils className="w-3.5 h-3.5" aria-hidden="true" />
-              <span>Sabores da Nossa Cozinha</span>
+              <span>Cardápio do Fogão a Lenha</span>
             </span>
             <h2
               id="menu-highlights-heading"
               className="font-serif text-3xl sm:text-4xl font-semibold text-[#303A2C]"
             >
-              O que esperar do nosso almoço no campo
+              Pratos preparados no nosso fogão a lenha
             </h2>
             <p className="text-base text-[#303A2C]/80 leading-relaxed">
-              Nosso cardápio respeita a sazonalidade dos ingredientes e a tradição da culinária de
-              fazenda, oferecendo variedade para adultos e pratos acolhedores para o paladar das
-              crianças.
+              Confira as opções tradicionais servidas nas panelas de barro do nosso buffet caipira:
             </p>
           </div>
 
@@ -114,13 +162,13 @@ export default function RestaurantePage() {
             <div className="lg:col-span-7 space-y-6">
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl border border-[#303A2C]/15 shadow-sm">
                 <Image
-                  src={gastronomy.imageSecondary.src}
-                  alt={gastronomy.imageSecondary.alt}
+                  src={gastronomy.imageMain.src}
+                  alt={gastronomy.imageMain.alt}
                   fill
                   loading="lazy"
                   sizes="(max-width: 1024px) 100vw, 55vw"
                   className="object-cover"
-                  style={{ objectPosition: gastronomy.imageSecondary.objectPosition }}
+                  style={{ objectPosition: gastronomy.imageMain.objectPosition }}
                 />
               </div>
 
@@ -137,12 +185,11 @@ export default function RestaurantePage() {
                     <li key={policy}>{policy}</li>
                   ))}
                   <li>
-                    Consulte com antecedência se a visita ao restaurante requer aquisição conjunta
-                    do{" "}
+                    Confira os valores do{" "}
                     <Link href="/ingressos" className="font-semibold text-[#315B3D] underline">
-                      ingresso da fazendinha
+                      ingresso da fazendinha (R$ 30,00)
                     </Link>{" "}
-                    na data escolhida.
+                    e faça seu agendamento antecipado pelo WhatsApp.
                   </li>
                 </ul>
                 <div className="pt-2">
@@ -150,7 +197,7 @@ export default function RestaurantePage() {
                     href="/aniversarios"
                     className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#315B3D] hover:text-[#24452D]"
                   >
-                    <span>Vai comemorar aniversário no almoço? Veja as regras para bolo e grupos</span>
+                    <span>Vai comemorar aniversário no almoço? Veja as regras para bolo e docinhos</span>
                     <ArrowRight className="w-4 h-4" aria-hidden="true" />
                   </Link>
                 </div>
@@ -159,8 +206,8 @@ export default function RestaurantePage() {
 
             <div className="lg:col-span-5">
               <WhatsAppBookingCard
-                title="Consultar cardápio do fim de semana"
-                subtitle="Fale com nossa equipe pelo WhatsApp para conferir os pratos programados, horários de serviço do almoço e valores por faixa etária."
+                title="Agendar visita e almoço"
+                subtitle="Garanta seus ingressos antecipados pelo WhatsApp (11) 94280-7987 e venha almoçar conosco no fim de semana."
                 defaultExperience="Almoço no restaurante rural"
                 formIdPrefix="restaurant-page-booking"
               />
@@ -170,8 +217,8 @@ export default function RestaurantePage() {
       </section>
 
       <FinalCTASection
-        title="Combine um almoço delicioso com um dia inteiro de descobertas"
-        subtitle="Consulte disponibilidade para sua família e venha viver a hospitalidade do campo."
+        title="Combine nosso almoço no fogão a lenha com um dia inteiro de fazendinha"
+        subtitle="Agende pelo WhatsApp (11) 94280-7987 e traga as crianças para viver momentos inesquecíveis em Mairiporã."
         defaultExperience="Almoço no restaurante rural"
         secondaryHref="/atracoes"
         secondaryLabel="Conhecer as atrações da fazendinha"

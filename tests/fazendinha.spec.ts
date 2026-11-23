@@ -3,12 +3,12 @@ import { test, expect } from "@playwright/test";
 const allRoutes = [
   { path: "/", expectedH1: "Um dia no campo. Memórias para a vida toda." },
   { path: "/atracoes", expectedH1: "Atrações e experiências no campo para toda a família" },
-  { path: "/ingressos", expectedH1: "Ingressos, funcionamento e como planejar sua visita" },
-  { path: "/restaurante", expectedH1: "Gastronomia rural autêntica e almoço em família" },
+  { path: "/ingressos", expectedH1: "Ingressos, valores e como agendar sua visita" },
+  { path: "/restaurante", expectedH1: "Menu de almoço: Self-Service coma à vontade no fogão a lenha" },
   { path: "/passeios-escolares", expectedH1: "Roteiros pedagógicos e vivências no campo para escolas" },
   { path: "/aniversarios", expectedH1: "Comemore aniversários em meio à natureza" },
   { path: "/galeria", expectedH1: "Momentos reais de descoberta e contato com a natureza" },
-  { path: "/como-chegar", expectedH1: "Localização, acesso e orientações de chegada" },
+  { path: "/como-chegar", expectedH1: "Localização, endereço e rota para a Fazendinha Velho Jou" },
   { path: "/perguntas-frequentes", expectedH1: "Perguntas frequentes sobre a visita à fazendinha" },
 ];
 
