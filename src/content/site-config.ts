@@ -70,7 +70,7 @@ export const siteConfig = {
     shortName: "Fazendinha",
     tagline: "Um dia no campo. Memórias para a vida toda.",
     subtitle: "Natureza, descobertas e momentos especiais para toda a família.",
-    siteUrl: "https://fazendinha-premium.com.br",
+    siteUrl: "https://fazendinha-do-velho-jou.vercel.app",
   },
   verificationStatus: {
     /**
