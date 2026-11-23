@@ -132,13 +132,13 @@ export const siteConfig = {
         note: "Mediante apresentação de documento na recepção",
       },
       {
-        label: "De 3 a 59 anos (Ingresso Individual)",
-        price: "R$ 30,00",
+        label: "De 3 a 59 anos (Ingresso Inteira)",
+        price: "R$ 45,00",
         note: "Inclui atividades de fazendeiro e atrações recreativas",
       },
       {
         label: "A partir de 60 anos (Melhor Idade)",
-        price: "R$ 15,00 (Meia-entrada)",
+        price: "R$ 22,50 (Meia-entrada)",
         note: "Mediante apresentação de documento oficial com foto",
       },
     ],
@@ -374,7 +374,7 @@ export const siteConfig = {
         id: "estrutura-apoio",
         title: "Preços justos e acessíveis para a família",
         description:
-          "Ingresso a R$ 30,00 (3 a 59 anos), meia-entrada R$ 15,00 (60+) e isenção para bebês de 0 a 2 anos, com todas as atrações inclusas.",
+          "Ingresso inteira a R$ 45,00 (3 a 59 anos), meia-entrada R$ 22,50 (60+) e isenção para bebês de 0 a 2 anos, com todas as atrações inclusas.",
       },
       {
         id: "atendimento-acolhedor",
@@ -481,7 +481,7 @@ export const siteConfig = {
         summary:
           "Preços transparentes por faixa etária para você planejar o passeio da família sem surpresas:",
         details: [
-          "Ingresso (3 a 59 anos): R$ 30,00 por pessoa | 60+ anos: R$ 15,00 (meia) | 0 a 2 anos: Grátis.",
+          "Ingresso Inteira (3 a 59 anos): R$ 45,00 por pessoa | 60+ anos: R$ 22,50 (meia) | 0 a 2 anos: Grátis.",
           "Almoço Self-Service à vontade: R$ 59,90 (12+ anos) | R$ 25,00 (9 a 11 anos) | R$ 12,00 (3 a 8 anos).",
           "O ingresso inclui todas as atividades de fazendeiro e recreativas.",
         ],
@@ -673,7 +673,7 @@ export const siteConfig = {
     },
     {
       id: "quais-atracoes",
-      question: "Quais atrações estão inclusas no ingresso de R$ 30,00?",
+      question: "Quais atrações estão inclusas no ingresso de R$ 45,00?",
       answer:
         "O ingresso dá acesso às Atividades de Fazendeiro (alimentar coelhos, aves, bovinos e miniporcos, dar mamadeira aos cabritos, escovar pônei e ordenha) e às Atrações Recreativas (passeio de pônei, passeio de trenzinho, pista de motocas, tobogã, fliperama, caixa de areia, casinha temática, piscina de bolinhas, cama elástica, chafariz e piscina infantil).",
       category: "Atrações e Estrutura",
@@ -717,7 +717,7 @@ export const siteConfig = {
       id: "formas-de-pagamento",
       question: "Qual o valor do ingresso e quem tem direito a meia-entrada ou gratuidade?",
       answer:
-        "Crianças de 0 a 2 anos não pagam ingresso. Visitantes de 3 a 59 anos pagam R$ 30,00 por pessoa e idosos a partir de 60 anos pagam meia-entrada (R$ 15,00). A reserva antecipada é realizada pelo WhatsApp (11) 94280-7987.",
+        "Crianças de 0 a 2 anos não pagam ingresso. Visitantes de 3 a 59 anos pagam R$ 45,00 por pessoa (inteira) e idosos a partir de 60 anos pagam meia-entrada (R$ 22,50). A reserva antecipada é realizada pelo WhatsApp (11) 94280-7987.",
       category: "Acesso e Pagamento",
     },
   ] satisfies FAQItem[],

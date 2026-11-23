@@ -20,14 +20,14 @@ import {
 export const metadata: Metadata = {
   title: "Ingressos e Valores — Mini Fazendinha Velho Jou (Mairiporã - SP)",
   description:
-    "Confira os valores de ingressos da Mini Fazendinha Velho Jou: R$ 30,00 por pessoa (de 3 a 59 anos), meia-entrada R$ 15,00 (60+) e grátis de 0 a 2 anos. Agende pelo WhatsApp (11) 94280-7987.",
+    "Confira os valores de ingressos da Mini Fazendinha Velho Jou: R$ 45,00 por pessoa (inteira de 3 a 59 anos), meia-entrada R$ 22,50 (60+) e grátis de 0 a 2 anos. Agende pelo WhatsApp (11) 94280-7987.",
   alternates: {
     canonical: "/ingressos",
   },
   openGraph: {
     title: "Ingressos e Valores — Mini Fazendinha Velho Jou",
     description:
-      "Ingresso R$ 30,00 (3 a 59 anos) | Meia 60+ R$ 15,00 | 0 a 2 anos Grátis. Inclui atividades de fazendeiro, pônei, trenzinho e recreação.",
+      "Ingresso Inteira R$ 45,00 (3 a 59 anos) | Meia 60+ R$ 22,50 | 0 a 2 anos Grátis. Inclui atividades de fazendeiro, pônei, trenzinho e recreação.",
     url: "/ingressos",
     images: ["/images/outdoor-play-meadow.jpg"],
   },
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
 const ticketCategories = [
   {
     id: "adultos-e-juvenil",
-    title: "De 3 a 59 anos",
-    price: "R$ 30,00 por pessoa",
-    badge: "Ingresso Individual",
+    title: "De 3 a 59 anos (Inteira)",
+    price: "R$ 45,00 por pessoa",
+    badge: "Ingresso Inteira",
     icon: Users,
     description:
       "Inclui todas as Atividades de Fazendeiro (alimentar coelhos, aves, bovinos e miniporcos, mamadeira aos cabritos, escovar pônei e ordenha) e Atrações Recreativas (passeio de pônei, trenzinho, motocas, tobogã, cama elástica, piscina e mais).",
@@ -63,7 +63,7 @@ const ticketCategories = [
   {
     id: "melhor-idade",
     title: "Melhor Idade (60+ anos)",
-    price: "R$ 15,00 (Meia-entrada)",
+    price: "R$ 22,50 (Meia-entrada)",
     badge: "Benefício 60+",
     icon: HeartHandshake,
     description:

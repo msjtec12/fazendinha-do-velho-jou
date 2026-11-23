@@ -187,7 +187,7 @@ export default function RestaurantePage() {
                   <li>
                     Confira os valores do{" "}
                     <Link href="/ingressos" className="font-semibold text-[#315B3D] underline">
-                      ingresso da fazendinha (R$ 30,00)
+                      ingresso da fazendinha (R$ 45,00 inteira)
                     </Link>{" "}
                     e faça seu agendamento antecipado pelo WhatsApp.
                   </li>

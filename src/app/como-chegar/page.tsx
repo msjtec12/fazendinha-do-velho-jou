@@ -207,7 +207,7 @@ export default function ComoChegarPage() {
                     href="/ingressos"
                     className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#315B3D] hover:text-[#24452D]"
                   >
-                    <span>Ver valores de ingressos (R$ 30,00) e meia-entrada</span>
+                    <span>Ver valores de ingressos (R$ 45,00 inteira) e meia-entrada</span>
                     <ArrowRight className="w-4 h-4" aria-hidden="true" />
                   </Link>
                   <Link
