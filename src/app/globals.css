@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #315B3D;
+  --color-forest-dark: #24452D;
+  --color-forest-light: #437752;
+  --color-cream: #F7F0E3;
+  --color-cream-soft: #EFE6D5;
+  --color-cream-elevated: #FBF8F1;
+  --color-terracotta: #C47A45;
+  --color-terracotta-dark: #A6602E;
+  --color-sunshine: #E5B74A;
+  --color-sunshine-soft: #F6E6BC;
+  --color-deep: #303A2C;
+  --color-deep-muted: #525E4D;
+
+  --font-serif: var(--font-fraunces), Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: var(--font-manrope), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --radius-editorial: 1.5rem;
+  --radius-card: 1.125rem;
+  --radius-pill: 9999px;
+
+  --shadow-editorial: 0 20px 45px -15px rgba(48, 58, 44, 0.09);
+  --shadow-card: 0 10px 30px -10px rgba(48, 58, 44, 0.07);
+  --shadow-floating: 0 24px 48px -12px rgba(48, 58, 44, 0.16);
+}
+
+:root {
+  --bg-primary: #F7F0E3;
+  --bg-secondary: #EFE6D5;
+  --bg-elevated: #FBF8F1;
+  --text-primary: #303A2C;
+  --text-secondary: #4A5546;
+  --brand-forest: #315B3D;
+  --brand-terracotta: #C47A45;
+  --brand-sunshine: #E5B74A;
+  --border-subtle: rgba(48, 58, 44, 0.12);
+  --border-strong: rgba(48, 58, 44, 0.24);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em;
+}
+
+/* Acessibilidade: Estados de foco altamente visíveis conforme WCAG 2.2 AA */
+:focus-visible {
+  outline: 3px solid #315B3D;
+  outline-offset: 3px;
+}
+
+/* Textura sutil de papel editorial */
+.bg-grain {
+  background-image: radial-gradient(rgba(48, 58, 44, 0.045) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Respeito integral à preferência de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
