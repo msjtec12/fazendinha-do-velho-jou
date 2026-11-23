@@ -84,8 +84,8 @@ export const siteConfig = {
     testimonialsConfirmed: false,
   },
   contact: {
-    whatsappNumber: "5511999999999",
-    whatsappDisplay: "Canal Oficial via WhatsApp",
+    whatsappNumber: "5511942807987",
+    whatsappDisplay: "(11) 94280-7987",
     email: "atendimento@fazendinha.com.br",
     instagramHandle: "@fazendinha.experiencias",
     cityRegionLabel: "Interior & Cinturão Verde (Localização exata sob confirmação)",
