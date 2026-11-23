@@ -3,10 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/content/site-config";
 import { BookingTriggerButton } from "@/components/booking/booking-trigger-button";
-import { CalendarCheck, Compass, MapPin, Clock, Info } from "lucide-react";
+import {
+  CalendarCheck,
+  Compass,
+  MapPin,
+  Clock,
+  Info,
+  Instagram,
+  BadgeCheck,
+} from "lucide-react";
 
 export function HeroSection() {
-  const { hero } = siteConfig;
+  const { hero, social } = siteConfig;
 
   return (
     <section
@@ -15,21 +23,36 @@ export function HeroSection() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-          {/* Coluna Editorial (Texto + CTAs + Informações complementares) */}
+          {/* Coluna Editorial (Logo + Badge Instagram + Título + CTAs + Info) */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#315B3D]/12 border border-[#315B3D]/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#315B3D]">
-              <span className="h-2 w-2 rounded-full bg-[#315B3D]" aria-hidden="true" />
-              <span>{hero.badge}</span>
+            {/* Barra de Identidade Oficial: Emblema Velho Jou + Instagram Verificado */}
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#315B3D]/12 border border-[#315B3D]/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#315B3D]">
+                <span className="h-2 w-2 rounded-full bg-[#315B3D]" aria-hidden="true" />
+                <span>{hero.badge}</span>
+              </div>
+
+              <a
+                href={social.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#FBF8F1] border border-[#303A2C]/15 hover:border-[#315B3D] px-3.5 py-1.5 text-xs font-semibold text-[#303A2C] transition-colors shadow-2xs"
+              >
+                <Instagram className="w-3.5 h-3.5 text-[#C47A45]" aria-hidden="true" />
+                <span>{social.instagramHandle}</span>
+                <BadgeCheck className="w-3.5 h-3.5 text-[#1D9BF0]" aria-hidden="true" />
+                <span className="text-[#303A2C]/70 font-normal">({social.followersLabel})</span>
+              </a>
             </div>
 
             <h1
               id="hero-heading"
-              className="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] font-semibold text-[#303A2C] leading-[1.08] tracking-tight"
+              className="font-serif text-4xl sm:text-5xl lg:text-[3.4rem] font-semibold text-[#303A2C] leading-[1.08] tracking-tight"
             >
               {hero.title}
             </h1>
 
-            <p className="text-lg sm:text-xl text-[#303A2C]/85 leading-relaxed max-w-xl">
+            <p className="text-base sm:text-lg lg:text-xl text-[#303A2C]/85 leading-relaxed max-w-xl">
               {hero.subtitle}
             </p>
 
@@ -54,7 +77,7 @@ export function HeroSection() {
               </Link>
             </div>
 
-            {/* Informações complementares verificadas (Cidade/Região, Dias, Agendamento) */}
+            {/* Informações complementares verificadas (Mairiporã-SP, Dias, Agendamento) */}
             <div className="pt-4 border-t border-[#303A2C]/12 grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#C47A45] shrink-0 mt-1" aria-hidden="true" />
@@ -94,7 +117,7 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Coluna Fotográfica Responsiva Unificada (Mobile + Desktop sem duplicação de preload) */}
+          {/* Coluna Fotográfica Responsiva Unificada com Logo e Fotos Reais Velho Jou */}
           <div className="lg:col-span-6 w-full">
             <div className="relative w-full">
               {/* Moldura Principal Ampla (Único recurso visual LCP priorizado) */}
@@ -109,27 +132,58 @@ export function HeroSection() {
                   className="object-cover"
                   style={{ objectPosition: hero.desktopImage.objectPosition }}
                 />
+
+                {/* Selo Oficial com o Logo da Mini Fazendinha Velho Jou */}
+                <div className="absolute bottom-3.5 left-3.5 rounded-2xl bg-white/95 backdrop-blur-xs border border-[#303A2C]/15 px-3 py-2 shadow-md flex items-center gap-3">
+                  <div className="relative h-12 w-28 shrink-0">
+                    <Image
+                      src="/images/logo-velho-jou.png"
+                      alt="Emblema Mini Fazendinha Velho Jou"
+                      fill
+                      sizes="112px"
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="hidden sm:block pr-1 border-l border-[#303A2C]/15 pl-3">
+                    <p className="text-xs font-bold text-[#303A2C] leading-tight">
+                      Mini Fazendinha Velho Jou
+                    </p>
+                    <p className="text-[11px] text-[#315B3D] font-medium">
+                      Contato direto com animais • Mairiporã
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              {/* Card Secundário Editorial (Animais + Selo de Acolhimento) */}
-              <div className="mt-3.5 sm:mt-4 grid grid-cols-1 sm:grid-cols-12 gap-3.5 sm:gap-4 items-center w-full">
-                <div className="sm:col-span-5 relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-[#303A2C]/15 shadow-sm bg-[#EFE6D5]">
+              {/* Card Secundário com as 2 fotos reais do Anfitrião Velho Jou */}
+              <div className="mt-3.5 sm:mt-4 grid grid-cols-1 sm:grid-cols-12 gap-3.5 sm:gap-4 items-stretch w-full">
+                <div className="sm:col-span-4 relative aspect-[16/10] sm:aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[#303A2C]/15 shadow-sm bg-[#EFE6D5]">
                   <Image
-                    src={hero.mobileSecondaryImage.src}
-                    alt={hero.mobileSecondaryImage.alt}
+                    src="/images/velho-jou-miniporco.jpg"
+                    alt="Anfitrião da Mini Fazendinha Velho Jou com miniporco no cercado"
                     fill
-                    sizes="(max-width: 640px) 92vw, (max-width: 1024px) 38vw, 20vw"
+                    sizes="(max-width: 640px) 92vw, 18vw"
                     className="object-cover"
-                    style={{ objectPosition: hero.mobileSecondaryImage.objectPosition }}
+                    style={{ objectPosition: "center 30%" }}
                   />
                 </div>
-                <div className="sm:col-span-7 rounded-2xl bg-[#FBF8F1] border border-[#303A2C]/12 p-4 shadow-xs">
-                  <p className="font-serif text-base font-semibold text-[#303A2C]">
-                    Infância ao ar livre & contato real com o campo
+                <div className="sm:col-span-4 relative aspect-[16/10] sm:aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[#303A2C]/15 shadow-sm bg-[#EFE6D5]">
+                  <Image
+                    src="/images/velho-jou-anfitriao.jpg"
+                    alt="Anfitrião da Mini Fazendinha Velho Jou recebendo visitantes com chapéu"
+                    fill
+                    sizes="(max-width: 640px) 92vw, 18vw"
+                    className="object-cover"
+                    style={{ objectPosition: "center 25%" }}
+                  />
+                </div>
+                <div className="sm:col-span-4 rounded-2xl bg-[#FBF8F1] border border-[#303A2C]/12 p-4 shadow-xs flex flex-col justify-center">
+                  <p className="font-serif text-base font-semibold text-[#303A2C] leading-snug">
+                    Recepção acolhedora do Velho Jou
                   </p>
                   <p className="text-xs text-[#303A2C]/80 mt-1 leading-relaxed">
-                    Interação monitorada com animais dóceis, horta educativa, sombras naturais e
-                    almoço caseiro para aproveitar sem pressa.
+                    Mamadeira para cabritos, miniporcos, pônei, trenzinho e comida caipira no fogão a
+                    lenha.
                   </p>
                 </div>
               </div>

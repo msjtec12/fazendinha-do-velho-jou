@@ -78,10 +78,21 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": ["TouristAttraction", "LocalBusiness"],
     name: siteConfig.brand.name,
+    alternateName: siteConfig.brand.shortName,
     description:
-      "Fazendinha turística com experiências infantis, contato supervisionado com animais, gastronomia rural, passeios escolares e comemorações em família.",
+      "A Mini Fazendinha Velho Jou em Mairiporã - SP proporciona contato direto com os animais, passeio de pônei e trenzinho, almoço caipira no fogão a lenha, passeios escolares e aniversários.",
     url: siteConfig.brand.siteUrl,
+    logo: `${siteConfig.brand.siteUrl}/images/logo-velho-jou.png`,
     image: `${siteConfig.brand.siteUrl}/images/hero-family-farm.jpg`,
+    telephone: "+55-11-94280-7987",
+    email: siteConfig.contact.email,
+    sameAs: [siteConfig.social.instagramUrl],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Mairiporã",
+      addressRegion: "SP",
+      addressCountry: "BR",
+    },
     touristType: [
       "Famílias com crianças",
       "Escolas de Educação Infantil e Ensino Fundamental",

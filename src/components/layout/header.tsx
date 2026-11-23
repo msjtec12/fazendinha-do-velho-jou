@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
-import { Menu, X, Trees, CalendarCheck, ArrowRight } from "lucide-react";
+import { Menu, X, CalendarCheck, ArrowRight, Instagram } from "lucide-react";
 import { siteConfig } from "@/content/site-config";
 import { useBooking } from "@/components/booking/booking-context";
 import { cn } from "@/lib/utils";
@@ -38,26 +39,32 @@ export function Header() {
       className={cn(
         "sticky top-0 z-40 w-full transition-all duration-200 border-b",
         isScrolled
-          ? "bg-[#F7F0E3]/95 backdrop-blur-md border-[#303A2C]/12 shadow-xs py-2.5 sm:py-3"
-          : "bg-[#F7F0E3] border-[#303A2C]/8 py-3.5 sm:py-4"
+          ? "bg-[#F7F0E3]/95 backdrop-blur-md border-[#303A2C]/12 shadow-xs py-2 sm:py-2.5"
+          : "bg-[#F7F0E3] border-[#303A2C]/8 py-3 sm:py-3.5"
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
-        {/* Logo à esquerda */}
+        {/* Logo Oficial Mini Fazendinha Velho Jou à esquerda */}
         <Link
           href="/"
-          className="group inline-flex items-center gap-2.5 text-[#303A2C] focus:outline-none rounded-xl py-1"
-          aria-label="Ir para a página inicial da Fazendinha & Experiências Rurais"
+          className="group inline-flex items-center gap-2.5 text-[#303A2C] focus:outline-none rounded-xl py-0.5 shrink-0"
+          aria-label="Ir para a página inicial da Mini Fazendinha Velho Jou"
         >
-          <span className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-2xl bg-[#315B3D] text-[#F7F0E3] transition-transform group-hover:scale-105 shadow-xs shrink-0">
-            <Trees className="h-5 w-5 sm:h-5.5 sm:w-5.5" aria-hidden="true" />
-          </span>
-          <div className="flex flex-col">
-            <span className="font-serif text-lg sm:text-xl font-semibold leading-none tracking-tight text-[#303A2C]">
-              Fazendinha
+          <div className="relative h-11 w-24 sm:h-12 sm:w-28 overflow-hidden rounded-xl bg-white border border-[#303A2C]/15 shadow-2xs shrink-0 p-0.5">
+            <Image
+              src="/images/logo-velho-jou.png"
+              alt="Logotipo Mini Fazendinha Velho Jou"
+              fill
+              sizes="112px"
+              className="object-contain"
+            />
+          </div>
+          <div className="hidden sm:flex flex-col">
+            <span className="font-serif text-base sm:text-lg font-semibold leading-none tracking-tight text-[#303A2C]">
+              Velho Jou
             </span>
-            <span className="text-[11px] font-medium tracking-wide uppercase text-[#315B3D] mt-0.5">
-              Experiências Rurais
+            <span className="text-[10px] font-semibold tracking-wider uppercase text-[#315B3D] mt-0.5">
+              Mini Fazendinha
             </span>
           </div>
         </Link>
@@ -90,8 +97,18 @@ export function Header() {
           })}
         </nav>
 
-        {/* Ações à direita: CTA destacado + Menu Mobile */}
+        {/* Ações à direita: Instagram + CTA destacado + Menu Mobile */}
         <div className="flex items-center gap-2 shrink-0">
+          <a
+            href={siteConfig.social.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visitar Instagram oficial @fazendinhavelhojou"
+            className="hidden md:inline-flex items-center justify-center rounded-full border border-[#303A2C]/20 bg-[#FBF8F1] hover:border-[#315B3D] p-2.5 text-[#303A2C] transition-colors min-h-[42px] min-w-[42px]"
+          >
+            <Instagram className="w-4 h-4 text-[#C47A45]" aria-hidden="true" />
+          </a>
+
           <button
             type="button"
             onClick={() => openBookingModal(currentDefaultExperience)}
@@ -120,12 +137,18 @@ export function Header() {
                 <div>
                   <div className="flex items-center justify-between pb-5 border-b border-[#303A2C]/12">
                     <div className="flex items-center gap-2.5">
-                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#315B3D] text-[#F7F0E3]">
-                        <Trees className="h-4.5 w-4.5" aria-hidden="true" />
-                      </span>
+                      <div className="relative h-10 w-20 overflow-hidden rounded-lg bg-white border border-[#303A2C]/15 p-0.5">
+                        <Image
+                          src="/images/logo-velho-jou.png"
+                          alt="Logotipo Mini Fazendinha Velho Jou"
+                          fill
+                          sizes="80px"
+                          className="object-contain"
+                        />
+                      </div>
                       <div>
-                        <Dialog.Title className="font-serif text-lg font-semibold text-[#303A2C] leading-none">
-                          Fazendinha
+                        <Dialog.Title className="font-serif text-base font-semibold text-[#303A2C] leading-none">
+                          Mini Fazendinha Velho Jou
                         </Dialog.Title>
                         <Dialog.Description className="text-xs text-[#303A2C]/70 mt-0.5">
                           Menu de navegação do site
@@ -175,7 +198,9 @@ export function Header() {
 
                 <div className="mt-8 pt-5 border-t border-[#303A2C]/12 space-y-3">
                   <div className="rounded-2xl bg-[#EFE6D5] p-4 text-xs text-[#303A2C]/85 space-y-1">
-                    <p className="font-semibold text-[#303A2C]">Funcionamento & Consultas</p>
+                    <p className="font-semibold text-[#303A2C]">
+                      {siteConfig.contact.cityRegionLabel}
+                    </p>
                     <p>{siteConfig.contact.openingDaysSummary}</p>
                   </div>
                   <button
