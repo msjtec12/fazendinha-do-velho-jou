@@ -6,6 +6,7 @@ import { BookingProvider } from "@/components/booking/booking-context";
 import { WhatsAppBookingModal } from "@/components/booking/whatsapp-booking-modal";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { FloatingSocialActions } from "@/components/layout/floating-social-actions";
 import { JsonLd } from "@/components/seo/json-ld";
 
 const fraunces = localFont({
@@ -128,6 +129,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <FloatingSocialActions />
           <WhatsAppBookingModal />
         </BookingProvider>
       </body>
